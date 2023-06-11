@@ -104,9 +104,9 @@ public class Ai implements Player {
     SalvoView view = new SalvoView();
     view.showBoard(perceivedBoard.getGameBoard(), "Opponent Board:");
 
-    System.out.println("AI Successful hits: ");
+    view.printString("AI Successful hits: ");
     for (Coord c : shotsThatHitOpponentShips) {
-      System.out.println("[" + c.getX() + " " + c.getY() + "]");
+      view.printString("[" + c.getX() + " " + c.getY() + "]");
     }
     controller.updateShip(myBoard.getShips(), myBoard);
     shotCount = controller.setShots(myBoard.getShips());

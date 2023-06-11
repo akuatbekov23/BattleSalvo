@@ -109,9 +109,9 @@ public class User implements Player {
     SalvoView view = new SalvoView();
     view.showBoard(myBoard.getGameBoard(), "Your Board:");
 
-    System.out.println("Your Successful hits: ");
+    view.printString("Your Successful hits: ");
     for (Coord c : shotsThatHitOpponentShips) {
-      System.out.println("[" + c.getX() + " " + c.getY() + "]");
+      view.printString("[" + c.getX() + " " + c.getY() + "]");
     }
     controller.updateShip(myBoard.getShips(), myBoard);
     shotCount = controller.setShots(myBoard.getShips());
@@ -124,7 +124,8 @@ public class User implements Player {
    */
   @Override
   public void endGame(GameResult result, String reason) {
-    System.out.println(reason);
+    SalvoView view = new SalvoView();
+    view.printString(reason);
 
   }
 }
