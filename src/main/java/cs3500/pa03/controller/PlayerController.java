@@ -4,6 +4,7 @@ import cs3500.pa03.model.Ai;
 import cs3500.pa03.model.Board;
 import cs3500.pa03.model.Coord;
 import cs3500.pa03.model.GameResult;
+import cs3500.pa03.model.Ship;
 import cs3500.pa03.model.ShipType;
 import cs3500.pa03.model.User;
 import cs3500.pa04.Player;
@@ -21,6 +22,7 @@ public class PlayerController {
   private Board seenBotBoard;
   private Player user;
   private Player bot;
+  private ShipController controller = new ShipController();
 
   /**
    * @param height         the height of the board
@@ -54,16 +56,20 @@ public class PlayerController {
       bot.successfulHits(landedAiShots);
       user.successfulHits(landedUserShots);
 
-      if (user.getShotCount() == 0 && bot.getShotCount() == 0) {
+      List<Ship> playerShips = playerBoard.getShips();
+      List<Ship> botShips = botBoard.getShips();
+
+      if (controller.setShots(playerShips) == 0 && controller.setShots(botShips) == 0) {
         user.endGame(GameResult.TIE, "TIE!");
         gameEnd = true;
-      } else if (user.getShotCount() == 0) {
+      } else if (controller.setShots(playerShips) == 0) {
         user.endGame(GameResult.LOSE, "You lost!");
         gameEnd = true;
-      } else if (bot.getShotCount() == 0) {
-        user.endGame(GameResult.WIN, "You won!");
+      } else if (controller.setShots(botShips) == 0) {
+        user.endGame(GameResult.WIN, "You win!");
         gameEnd = true;
       }
+
     }
   }
 }
