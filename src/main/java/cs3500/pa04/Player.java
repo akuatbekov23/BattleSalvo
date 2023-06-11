@@ -1,4 +1,4 @@
-package cs3500.pa03;
+package cs3500.pa04;
 
 import cs3500.pa03.model.Coord;
 import cs3500.pa03.model.GameResult;

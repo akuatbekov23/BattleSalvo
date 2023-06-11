@@ -29,7 +29,7 @@ public class Board {
   /**
    * constructs a new board with an empty board & an empty array list of hit spaces
    */
-  Board(int height, int width) {
+  public Board(int height, int width) {
     gameBoard = createBoard(height, width);
     hitSpots = new ArrayList<>();
   }

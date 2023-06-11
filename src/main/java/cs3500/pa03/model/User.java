@@ -1,6 +1,7 @@
 package cs3500.pa03.model;
 
-import cs3500.pa03.Player;
+import cs3500.pa03.controller.ShipController;
+import cs3500.pa04.Player;
 import cs3500.pa03.view.SalvoView;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,13 @@ public class User implements Player {
   private int shotCount;
   private ArrayList<Ship> myShips;
   private ArrayList<Coord> shotsToTake;
+  private ShipController controller = new ShipController();
+
+  public User(Board myBoard, Board seenOpponentBoard, Board opponentBoard) {
+    this.myBoard = myBoard;
+    this.seenOpponentBoard = seenOpponentBoard;
+    this.opponentBoard = opponentBoard;
+  }
 
   /**
    * @return the name of the player
@@ -34,8 +42,6 @@ public class User implements Player {
    */
   @Override
   public List<Ship> setup(int height, int width, Map<ShipType, Integer> specifications) {
-    myBoard = new Board(height, width); // create user board
-    seenOpponentBoard = new Board(height, width); // create seen opponent board
     myBoard.placeShips(myBoard.getGameBoard(), specifications); // place my ships
     myShips = new ArrayList<>();
     ShipData data = new ShipData();
@@ -108,8 +114,8 @@ public class User implements Player {
     for (Coord c : shotsThatHitOpponentShips) {
       System.out.println("[" + c.getX() + " " + c.getY() + "]");
     }
-    updateShip();
-    setShots();
+    controller.updateShip(myShips, myBoard);
+    shotCount = controller.setShots(myShips);
 
   }
 
@@ -121,63 +127,5 @@ public class User implements Player {
   public void endGame(GameResult result, String reason) {
     System.out.println(reason);
 
-  }
-
-  /**
-   * @return the user's board
-   */
-  public Board getMyBoard() {
-    return myBoard;
-  }
-
-  /**
-   * @param oppBoard the opponent's board to set
-   */
-  public void setOpponentBoard(Board oppBoard) {
-    opponentBoard = oppBoard;
-  }
-
-  /**
-   * sets the user's next shot count
-   */
-  public void setShots() {
-    shotCount = 0;
-    for (Ship s : myShips) {
-      if (!s.isSunk()) {
-        shotCount++;
-      }
-    }
-  }
-
-  /**
-   * @return the user's shot count
-   */
-  public int getShotCount() {
-    return shotCount;
-  }
-
-  /**
-   * @return gets the seen opponent's board
-   */
-  public Board getSeenOpponentBoard() {
-    return seenOpponentBoard;
-  }
-
-  /**
-   * updates the ship to sunk if all coordinates are hit
-   */
-  public void updateShip() {
-    for (Ship s : myShips) {
-      List<Coord> positions = s.getPosition();
-
-      for (Coord c : positions) {
-        if (!myBoard.getHitSpots().contains(c)) {
-          s.unSunk();
-          break;
-        } else {
-          s.makeSunk();
-        }
-      }
-    }
   }
 }

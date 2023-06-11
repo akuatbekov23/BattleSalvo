@@ -6,6 +6,7 @@ import cs3500.pa03.model.Coord;
 import cs3500.pa03.model.GameResult;
 import cs3500.pa03.model.ShipType;
 import cs3500.pa03.model.User;
+import cs3500.pa04.Player;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +15,12 @@ import java.util.Map;
  */
 public class PlayerController {
 
-  private final User user = new User();
-  private final Ai ai = new Ai();
+  private Board playerBoard;
+  private Board botBoard;
+  private Board seenPlayerBoard;
+  private Board seenBotBoard;
+  private Player user;
+  private Player bot;
 
   /**
    * @param height         the height of the board
@@ -23,10 +28,16 @@ public class PlayerController {
    * @param specifications a map of ship amounts to each ship type
    */
   public void startGame(int height, int width, Map<ShipType, Integer> specifications) {
+    playerBoard = new Board(height, width);
+    botBoard = new Board(height, width);
+    seenPlayerBoard = new Board(height, width);
+    seenBotBoard = new Board(height, width);
+
+    user = new User(playerBoard, seenBotBoard, botBoard);
+    bot = new Ai(botBoard, seenPlayerBoard, seenBotBoard);
+
     user.setup(height, width, specifications);
-    ai.setup(height, width, specifications);
-    user.setOpponentBoard(ai.getMyBoard()); // set User's opponent board to AI board
-    ai.setOpponentBoard(user.getMyBoard()); // set AI's opponent board to User board
+    bot.setup(height, width, specifications);
     gameLoop();
   }
 
@@ -36,22 +47,20 @@ public class PlayerController {
   public void gameLoop() {
     boolean gameEnd = false;
     while (!gameEnd) {
-      Board seen = user.getSeenOpponentBoard();
-      ai.setPerceived(seen);
       List<Coord> userShots = user.takeShots();
-      List<Coord> aiShots = ai.takeShots();
+      List<Coord> aiShots = bot.takeShots();
       List<Coord> landedAiShots = user.reportDamage(aiShots);
-      List<Coord> landedUserShots = ai.reportDamage(userShots);
-      ai.successfulHits(landedAiShots);
+      List<Coord> landedUserShots = bot.reportDamage(userShots);
+      bot.successfulHits(landedAiShots);
       user.successfulHits(landedUserShots);
 
-      if (user.getShotCount() == 0 && ai.getShotCount() == 0) {
+      if (user.getShotCount() == 0 && bot.getShotCount() == 0) {
         user.endGame(GameResult.TIE, "TIE!");
         gameEnd = true;
       } else if (user.getShotCount() == 0) {
         user.endGame(GameResult.LOSE, "You lost!");
         gameEnd = true;
-      } else if (ai.getShotCount() == 0) {
+      } else if (bot.getShotCount() == 0) {
         user.endGame(GameResult.WIN, "You won!");
         gameEnd = true;
       }
