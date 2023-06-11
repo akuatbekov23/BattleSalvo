@@ -16,7 +16,6 @@ public class Ai implements Player {
   private Board seenOpponentBoard;
   private Board perceivedBoard;
   private int shotCount;
-  private ArrayList<Ship> myShips;
   private ShipController controller = new ShipController();
 
   public Ai(Board myBoard, Board seenOpponentBoard, Board perceivedBoard) {
@@ -43,7 +42,7 @@ public class Ai implements Player {
   @Override
   public List<Ship> setup(int height, int width, Map<ShipType, Integer> specifications) {
     myBoard.placeShips(myBoard.getGameBoard(), specifications); // place my ships
-    myShips = new ArrayList<>();
+    List<Ship> myShips = myBoard.getShips();
     ShipData data = new ShipData();
     data.representData(myBoard.getGameBoard(), "C ", myShips);
     data.representData(myBoard.getGameBoard(), "B ", myShips);
@@ -78,7 +77,7 @@ public class Ai implements Player {
   public List<Coord> reportDamage(List<Coord> opponentShotsOnBoard) {
     List<Coord> hitPlaces = new ArrayList<>();
     List<Coord> allPositions = new ArrayList<>();
-    for (Ship s : myShips) {
+    for (Ship s : myBoard.getShips()) {
       List<Coord> shipPosition = s.getPosition();
       allPositions.addAll(shipPosition);
     }
@@ -109,8 +108,8 @@ public class Ai implements Player {
     for (Coord c : shotsThatHitOpponentShips) {
       System.out.println("[" + c.getX() + " " + c.getY() + "]");
     }
-    controller.updateShip(myShips, myBoard);
-    shotCount = controller.setShots(myShips);
+    controller.updateShip(myBoard.getShips(), myBoard);
+    shotCount = controller.setShots(myBoard.getShips());
   }
 
   /**

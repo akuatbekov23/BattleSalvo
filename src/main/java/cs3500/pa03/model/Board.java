@@ -12,6 +12,7 @@ public class Board {
 
   private final String[][] gameBoard;
   private final List<Coord> hitSpots;
+  private ArrayList<Ship> myShips = new ArrayList<>();
 
   /**
    * resets the color
@@ -94,5 +95,12 @@ public class Board {
       int coordY = c.getY();
       gameBoard[coordX][coordY] = (ANSI_GREEN + "O " + ANSI_RESET);
     }
+  }
+
+  /**
+   * @return the board's ships
+   */
+  public List<Ship> getShips() {
+    return myShips;
   }
 }
