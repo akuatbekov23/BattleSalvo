@@ -31,7 +31,7 @@ public class Board {
    * constructs a new board with an empty board & an empty array list of hit spaces
    */
   public Board(int height, int width) {
-    gameBoard = createBoard(height, width);
+    gameBoard = createBoard(width, height);
     hitSpots = new ArrayList<>();
   }
 
@@ -41,7 +41,7 @@ public class Board {
    * @return an empty game board
    */
   public String[][] createBoard(int height, int width) {
-    String[][] gameBoard = new String[height][width];
+    String[][] gameBoard = new String[width][height];
     for (String[] strings : gameBoard) {
       Arrays.fill(strings, (ANSI_BLUE + "= " + ANSI_RESET));
     }
@@ -82,7 +82,7 @@ public class Board {
     for (Coord c : missedShots) {
       int coordX = c.getX();
       int coordY = c.getY();
-      gameBoard[coordX][coordY] = (ANSI_RED + "X " + ANSI_RESET);
+      gameBoard[coordY][coordX] = (ANSI_RED + "X " + ANSI_RESET);
     }
   }
 
@@ -93,7 +93,7 @@ public class Board {
     for (Coord c : hitShots) {
       int coordX = c.getX();
       int coordY = c.getY();
-      gameBoard[coordX][coordY] = (ANSI_GREEN + "O " + ANSI_RESET);
+      gameBoard[coordY][coordX] = (ANSI_GREEN + "O " + ANSI_RESET);
     }
   }
 

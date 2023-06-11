@@ -179,12 +179,12 @@ public class InputController {
     int width = seenBoard[0].length;
 
     for (int i = 0; i < shotCount; i++) {
-      int coordX = randomize.randomNumber(0, height);
-      int coordY = randomize.randomNumber(0, width);
+      int coordX = randomize.randomNumber(0, width);
+      int coordY = randomize.randomNumber(0, height);
       Coord coord = new Coord(coordX, coordY);
       while (validator.beenHit(coord, seenOpponentBoard) || validator.isDupe(coord, shots)) {
-        coordX = randomize.randomNumber(0, height);
-        coordY = randomize.randomNumber(0, width);
+        coordX = randomize.randomNumber(0, width);
+        coordY = randomize.randomNumber(0, height);
         coord = new Coord(coordX, coordY);
       }
       shots.add(coord);
