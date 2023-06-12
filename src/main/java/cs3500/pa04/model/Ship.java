@@ -13,7 +13,7 @@ public class Ship {
   private final List<Coord> position;
 
   /**
-   * @param type the type of Ship
+   * @param type     the type of Ship
    * @param position the list of coordinates that the ship is positioned at
    */
   public Ship(ShipType type, ArrayList<Coord> position) {
@@ -63,5 +63,12 @@ public class Ship {
   public void setPosition(List<Coord> coords) {
     this.position.clear();
     this.position.addAll(coords);
+  }
+
+  /**
+   * @param coord the coordinate to add to the ship
+   */
+  public void addCoord(Coord coord) {
+    this.position.add(coord);
   }
 }
