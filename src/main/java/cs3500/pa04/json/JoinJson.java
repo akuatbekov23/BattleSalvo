@@ -3,7 +3,8 @@ package cs3500.pa04.json;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Represents joining the BattleSalvo server
+ * @param name the user's name
+ * @param gameType the type of game to be played
  */
 public record JoinJson(
 
