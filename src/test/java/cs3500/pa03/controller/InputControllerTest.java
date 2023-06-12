@@ -10,6 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
+/**
+ * Tests for the InputController class.
+ */
 public class InputControllerTest {
 
   private InputController inputController;

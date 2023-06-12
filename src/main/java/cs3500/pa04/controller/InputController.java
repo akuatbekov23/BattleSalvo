@@ -120,7 +120,7 @@ public class InputController {
    * @param shotCount         the amount of shots possible
    * @param seenOpponentBoard the opponent's board that can be seen by the player
    * @param shots             the list of shots to be taken
-   * @return
+   * @return the list of shots to be taken
    */
   public ArrayList<Coord> getShotCoords(int shotCount, Board seenOpponentBoard, ArrayList<Coord> shots) {
     shots.clear();

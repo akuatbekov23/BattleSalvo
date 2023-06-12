@@ -1,10 +1,11 @@
 package cs3500.pa03.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for the ShipController class.
+ */
 class ShipControllerTest {
 
   @BeforeEach
