@@ -1,12 +1,12 @@
-package cs3500.pa03.controller;
+package cs3500.pa04.controller;
 
-import cs3500.pa03.model.Ai;
-import cs3500.pa03.model.Board;
-import cs3500.pa03.model.Coord;
-import cs3500.pa03.model.GameResult;
-import cs3500.pa03.model.Ship;
-import cs3500.pa03.model.ShipType;
-import cs3500.pa03.model.User;
+import cs3500.pa04.model.Ai;
+import cs3500.pa04.model.Board;
+import cs3500.pa04.model.Coord;
+import cs3500.pa04.model.GameResult;
+import cs3500.pa04.model.Ship;
+import cs3500.pa04.model.ShipType;
+import cs3500.pa04.model.User;
 import cs3500.pa04.Player;
 import java.util.List;
 import java.util.Map;

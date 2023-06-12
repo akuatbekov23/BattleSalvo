@@ -5,9 +5,9 @@ import cs3500.pa04.model.Coord;
 import java.util.List;
 
 /**
- * represents the take shot json
+ * @param coordinates represents a volley of shots
  */
-public record TakeShotJson(
+public record CoordinatesJson (
     @JsonProperty("coordinates") List<CoordJson> coordinates
-) {
+){
 }

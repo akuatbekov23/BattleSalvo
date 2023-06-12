@@ -1,4 +1,4 @@
-package cs3500.pa03.model;
+package cs3500.pa04.model;
 
 /**
  * a class representing placing ships on the game board

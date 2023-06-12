@@ -1,4 +1,4 @@
-package cs3500.pa03.model;
+package cs3500.pa04.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,7 +93,7 @@ public class Board {
     for (Coord c : hitShots) {
       int coordX = c.getX();
       int coordY = c.getY();
-      gameBoard[coordY][coordX] = (ANSI_GREEN + "O " + ANSI_RESET);
+        gameBoard[coordY][coordX] = (ANSI_GREEN + "O " + ANSI_RESET);
     }
   }
 

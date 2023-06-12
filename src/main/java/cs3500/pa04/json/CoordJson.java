@@ -1,10 +1,13 @@
 package cs3500.pa04.json;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
- * Represents the Coord in the BattleSalvo.
+ * @param x the column index
+ * @param y the row index
  */
-public record CoordJson(
-    int pointX,
-    int pointY
-) {
-}
+public record CoordJson (
+    @JsonProperty("x") int x,
+    @JsonProperty("y") int y
+)
+{}
