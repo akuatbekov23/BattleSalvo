@@ -55,7 +55,6 @@ public class ProxyController {
 
   private void delegateMessage(MessageJson message) {
 
-
   }
 
 }
