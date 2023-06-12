@@ -32,7 +32,7 @@ public class Driver {
         proxyController.run();
         server.close();
       } catch (IOException e) {
-        System.out.println("Invalid arguments!");
+        System.out.println("Invalid arguments! Please put in the server host and port.");
       }
     }
   }
