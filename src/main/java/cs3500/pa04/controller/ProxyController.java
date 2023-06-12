@@ -20,7 +20,7 @@ public class ProxyController {
   private final ObjectMapper mapper = new ObjectMapper();
 
   /**
-   * represents a void response
+   * represents a void response.
    */
   private static final JsonNode VOID_RESPONSE =
       new ObjectMapper().getNodeFactory().textNode("void");
