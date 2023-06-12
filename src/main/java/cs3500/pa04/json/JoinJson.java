@@ -9,5 +9,5 @@ public record JoinJson(
 
     @JsonProperty("name") String name,
     @JsonProperty("gameType") String gameType
-)
-{}
+) {
+}

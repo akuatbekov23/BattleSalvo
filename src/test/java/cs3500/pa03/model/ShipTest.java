@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cs3500.pa04.model.Coord;
+import cs3500.pa04.model.Ship;
+import cs3500.pa04.model.ShipType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

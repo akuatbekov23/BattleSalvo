@@ -117,11 +117,13 @@ public class InputController {
   }
 
   /**
-   * @param shotCount the amount of shots possible
+   * @param shotCount         the amount of shots possible
    * @param seenOpponentBoard the opponent's board that can be seen by the player
-   * @param shots the list of shots to be taken
+   * @param shots             the list of shots to be taken
+   * @return the list of shots to be taken
    */
-  public void getShotCoords(int shotCount, Board seenOpponentBoard, ArrayList<Coord> shots) {
+  public ArrayList<Coord> getShotCoords(int shotCount,
+                                        Board seenOpponentBoard, ArrayList<Coord> shots) {
     shots.clear();
 
     for (int i = 0; i < shotCount; i++) {
@@ -154,12 +156,13 @@ public class InputController {
         break;
       }
     }
+    return shots;
   }
 
   /**
-   * @param shotCount the amount of shots to take
+   * @param shotCount         the amount of shots to take
    * @param seenOpponentBoard the opponent's board
-   * @param shots the list of shots to be taken
+   * @param shots             the list of shots to be taken
    */
   public void resetShots(int shotCount, Board seenOpponentBoard, ArrayList<Coord> shots) {
     SalvoView view = new SalvoView();
@@ -168,9 +171,9 @@ public class InputController {
   }
 
   /**
-   * @param shotCount the amount of shots to take
+   * @param shotCount         the amount of shots to take
    * @param seenOpponentBoard the opponent's board that can be seen
-   * @param shots the list of shots to be taken
+   * @param shots             the list of shots to be taken
    */
   public void randomShots(int shotCount, Board seenOpponentBoard, ArrayList<Coord> shots) {
     Randomize randomize = new Randomize();
@@ -189,5 +192,40 @@ public class InputController {
       }
       shots.add(coord);
     }
+  }
+
+  /**
+   * @return the board width
+   */
+  public int getHeight() {
+    return height;
+  }
+
+  /**
+   * @return the board height
+   */
+  public int getWidth() {
+    return width;
+  }
+
+  /**
+   * @param i the board height
+   */
+  public void setHeight(int i) {
+    this.height = i;
+  }
+
+  /**
+   * @param i the board width
+   */
+  public void setWidth(int i) {
+    this.width = i;
+  }
+
+  /**
+   * @return the specifications of the game
+   */
+  public Map<ShipType, Integer> getSpecifications() {
+    return specifications;
   }
 }

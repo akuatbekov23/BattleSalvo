@@ -1,5 +1,6 @@
 package cs3500.pa04.controller;
 
+import cs3500.pa04.Player;
 import cs3500.pa04.model.Ai;
 import cs3500.pa04.model.Board;
 import cs3500.pa04.model.Coord;
@@ -7,7 +8,6 @@ import cs3500.pa04.model.GameResult;
 import cs3500.pa04.model.Ship;
 import cs3500.pa04.model.ShipType;
 import cs3500.pa04.model.User;
-import cs3500.pa04.Player;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +20,10 @@ public class PlayerController {
   private Board botBoard;
   private Board seenPlayerBoard;
   private Board seenBotBoard;
-  private Player user;
+  /**
+   * the user playing the game
+   */
+  public Player user;
   private Player bot;
   private ShipController controller = new ShipController();
 
@@ -72,4 +75,6 @@ public class PlayerController {
 
     }
   }
+
+
 }

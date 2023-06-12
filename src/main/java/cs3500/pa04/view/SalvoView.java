@@ -16,6 +16,8 @@ public class SalvoView {
 
   /**
    * @param s the string to be printed
+   *
+   * @return the string that was printed
    */
   public String printString(String s) {
     out.append(s);

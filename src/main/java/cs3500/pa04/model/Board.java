@@ -23,12 +23,22 @@ public class Board {
    */
   public static final String ANSI_BLUE = "\u001B[34m";
 
+  /**
+   * represents red text
+   */
   public static final String ANSI_RED = "\u001B[31m";
+
+  /**
+   * represents green text
+   */
   public static final String ANSI_GREEN = "\u001B[32m";
 
 
   /**
-   * constructs a new board with an empty board & an empty array list of hit spaces
+   * constructs a new board with an empty board and an empty array list of hit spaces
+   *
+   * @param height the height of the board
+   * @param width  the width of the board
    */
   public Board(int height, int width) {
     gameBoard = createBoard(width, height);
@@ -37,7 +47,7 @@ public class Board {
 
   /**
    * @param height the height of the board
-   * @param width the width of the board
+   * @param width  the width of the board
    * @return an empty game board
    */
   public String[][] createBoard(int height, int width) {
@@ -63,7 +73,7 @@ public class Board {
   }
 
   /**
-   * @param gameBoard the game board to place ships onto
+   * @param gameBoard      the game board to place ships onto
    * @param specifications the types of ships and the amount to place
    */
   public void placeShips(String[][] gameBoard, Map<ShipType, Integer> specifications) {
@@ -93,7 +103,7 @@ public class Board {
     for (Coord c : hitShots) {
       int coordX = c.getX();
       int coordY = c.getY();
-        gameBoard[coordY][coordX] = (ANSI_GREEN + "O " + ANSI_RESET);
+      gameBoard[coordY][coordX] = (ANSI_GREEN + "O " + ANSI_RESET);
     }
   }
 
@@ -102,5 +112,13 @@ public class Board {
    */
   public List<Ship> getShips() {
     return myShips;
+  }
+
+
+  /**
+   * @param coord the coordinate to add to the list of hit spots
+   */
+  public void addHitSpot(Coord coord) {
+    hitSpots.add(coord);
   }
 }
