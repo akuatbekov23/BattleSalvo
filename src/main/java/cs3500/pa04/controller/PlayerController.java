@@ -20,7 +20,10 @@ public class PlayerController {
   private Board botBoard;
   private Board seenPlayerBoard;
   private Board seenBotBoard;
-  private Player user;
+  /**
+   * the user playing the game
+   */
+  public Player user;
   private Player bot;
   private ShipController controller = new ShipController();
 
@@ -72,4 +75,6 @@ public class PlayerController {
 
     }
   }
+
+
 }

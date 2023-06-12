@@ -113,4 +113,12 @@ public class Board {
   public List<Ship> getShips() {
     return myShips;
   }
+
+
+  /**
+   * @param coord the coordinate to add to the list of hit spots
+   */
+  public void addHitSpot(Coord coord) {
+    hitSpots.add(coord);
+  }
 }

@@ -56,4 +56,12 @@ public class Ship {
   public List<Coord> getPosition() {
     return this.position;
   }
+
+  /**
+   * @param coords the list of coordinates that the ship is positioned at
+   */
+  public void setPosition(List<Coord> coords) {
+    this.position.clear();
+    this.position.addAll(coords);
+  }
 }

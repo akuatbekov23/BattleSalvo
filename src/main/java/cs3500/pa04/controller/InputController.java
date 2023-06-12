@@ -122,7 +122,8 @@ public class InputController {
    * @param shots             the list of shots to be taken
    * @return the list of shots to be taken
    */
-  public ArrayList<Coord> getShotCoords(int shotCount, Board seenOpponentBoard, ArrayList<Coord> shots) {
+  public ArrayList<Coord> getShotCoords(int shotCount,
+                                        Board seenOpponentBoard, ArrayList<Coord> shots) {
     shots.clear();
 
     for (int i = 0; i < shotCount; i++) {
