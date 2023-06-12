@@ -2,6 +2,7 @@ package cs3500.pa03.model;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import cs3500.pa04.model.Randomize;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

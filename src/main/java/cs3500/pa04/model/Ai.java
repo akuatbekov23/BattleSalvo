@@ -1,9 +1,9 @@
 package cs3500.pa04.model;
 
+import cs3500.pa04.Player;
 import cs3500.pa04.controller.InputController;
 import cs3500.pa04.controller.ShipController;
 import cs3500.pa04.view.SalvoView;
-import cs3500.pa04.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

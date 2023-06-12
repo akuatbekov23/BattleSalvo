@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @param fleet a fleet of ships represented in a Json format
  */
-public record FleetJson (
+public record FleetJson(
     @JsonProperty("fleet") List<ShipJson> fleet
-)
-{}
+) {
+}

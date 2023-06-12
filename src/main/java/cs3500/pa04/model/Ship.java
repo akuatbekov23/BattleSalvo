@@ -14,8 +14,9 @@ public class Ship {
 
   /**
    * @param type the type of Ship
+   * @param position the list of coordinates that the ship is positioned at
    */
-  Ship(ShipType type, ArrayList<Coord> position) {
+  public Ship(ShipType type, ArrayList<Coord> position) {
     this.sunk = false;
     this.type = type;
     this.position = position;

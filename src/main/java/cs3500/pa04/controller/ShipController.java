@@ -11,6 +11,8 @@ import java.util.List;
 public class ShipController {
 
   /**
+   *
+   * @param myShips the player's ships
    * @return the user's shot count
    */
   public int setShots(List<Ship> myShips) {

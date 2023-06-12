@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @param coordinates represents a volley of shots
  */
-public record CoordinatesJson (
+public record CoordinatesJson(
     @JsonProperty("coordinates") List<CoordJson> coordinates
-){
+) {
 }
