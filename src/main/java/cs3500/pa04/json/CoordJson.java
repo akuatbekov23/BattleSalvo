@@ -1,6 +1,9 @@
 package cs3500.pa04.json;
 
-public record CoordJson (
+/**
+ * Represents the Coord in the BattleSalvo.
+ */
+public record CoordJson(
     int pointX,
     int pointY
 ) {

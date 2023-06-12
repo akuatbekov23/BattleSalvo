@@ -1,9 +1,9 @@
 package cs3500.pa03.model;
 
-import cs3500.pa03.controller.ShipController;
-import cs3500.pa04.Player;
 import cs3500.pa03.controller.InputController;
+import cs3500.pa03.controller.ShipController;
 import cs3500.pa03.view.SalvoView;
+import cs3500.pa04.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +18,13 @@ public class Ai implements Player {
   private int shotCount;
   private ShipController controller = new ShipController();
 
+  /**
+   * constructor for the AI
+   *
+   * @param myBoard           the AI's board
+   * @param seenOpponentBoard the opponent's board
+   * @param perceivedBoard    the AI's perceived board
+   */
   public Ai(Board myBoard, Board seenOpponentBoard, Board perceivedBoard) {
     this.myBoard = myBoard;
     this.seenOpponentBoard = seenOpponentBoard;

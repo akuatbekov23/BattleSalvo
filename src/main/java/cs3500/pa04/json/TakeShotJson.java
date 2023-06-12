@@ -1,4 +1,9 @@
 package cs3500.pa04.json;
 
-public record TakeShotJson () {
+/**
+ * Represents the Board in the Battle.
+ */
+public record TakeShotJson(
+
+) {
 }

@@ -22,8 +22,8 @@ public class ShipData {
 
   /**
    * @param gameBoard the game board to view the coordinates
-   * @param type the type of Ship
-   * @param allShips a list of all the ships on the board
+   * @param type      the type of Ship
+   * @param allShips  a list of all the ships on the board
    * @return a list of all the ships including their coordinates
    */
   public List<Ship> representData(String[][] gameBoard, String type, List<Ship> allShips) {
@@ -42,6 +42,7 @@ public class ShipData {
           case "B " -> allShips.add(new Ship(ShipType.BATTLESHIP, shipCoords));
           case "D " -> allShips.add(new Ship(ShipType.DESTROYER, shipCoords));
           case "S " -> allShips.add(new Ship(ShipType.SUBMARINE, shipCoords));
+          default -> throw new IllegalArgumentException("Invalid ship type");
         }
       }
     }

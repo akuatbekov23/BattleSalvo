@@ -1,8 +1,8 @@
 package cs3500.pa03.model;
 
 import cs3500.pa03.controller.ShipController;
-import cs3500.pa04.Player;
 import cs3500.pa03.view.SalvoView;
+import cs3500.pa04.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +18,13 @@ public class User implements Player {
   private ArrayList<Coord> shotsToTake;
   private ShipController controller = new ShipController();
 
+  /**
+   * constructor for the User
+   *
+   * @param myBoard           the user's board
+   * @param seenOpponentBoard the opponent's board
+   * @param opponentBoard     the user's opponent's board
+   */
   public User(Board myBoard, Board seenOpponentBoard, Board opponentBoard) {
     this.myBoard = myBoard;
     this.seenOpponentBoard = seenOpponentBoard;
