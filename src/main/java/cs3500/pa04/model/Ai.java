@@ -14,29 +14,15 @@ import java.util.Map;
 public class Ai implements Player {
   private Board myBoard;
   private Board seenOpponentBoard;
-  private Board perceivedBoard;
   private int shotCount;
   private ShipController controller = new ShipController();
-
-  /**
-   * constructor for the AI
-   *
-   * @param myBoard           the AI's board
-   * @param seenOpponentBoard the opponent's board
-   * @param perceivedBoard    the AI's perceived board
-   */
-  public Ai(Board myBoard, Board seenOpponentBoard, Board perceivedBoard) {
-    this.myBoard = myBoard;
-    this.seenOpponentBoard = seenOpponentBoard;
-    this.perceivedBoard = perceivedBoard;
-  }
 
   /**
    * @return the user's name
    */
   @Override
   public String name() {
-    return    "pa04-zzzsleepypamakemecry";
+    return "pa04-zzzsleepypamakemecry";
   }
 
   /**
@@ -48,6 +34,8 @@ public class Ai implements Player {
    */
   @Override
   public List<Ship> setup(int height, int width, Map<ShipType, Integer> specifications) {
+    myBoard = new Board(height, width);
+    seenOpponentBoard = new Board(height, width);
     myBoard.placeShips(myBoard.getGameBoard(), specifications); // place my ships
     List<Ship> myShips = myBoard.getShips();
     ShipData data = new ShipData();
@@ -100,8 +88,6 @@ public class Ai implements Player {
         }
       }
     }
-    perceivedBoard.updateBoardMissed(opponentShotsOnBoard);
-    perceivedBoard.updateBoardHit(hitPlaces);
     return hitPlaces;
   }
 
@@ -109,11 +95,10 @@ public class Ai implements Player {
   @Override
   public void successfulHits(List<Coord> shotsThatHitOpponentShips) {
     SalvoView view = new SalvoView();
-    view.showBoard(perceivedBoard.getGameBoard(), "Opponent Board:");
 
-    view.printString("AI Successful hits: ");
+    view.printString("AI Successful hits: \n");
     for (Coord c : shotsThatHitOpponentShips) {
-      view.printString("[" + c.getX() + " " + c.getY() + "]");
+      view.printString("[" + c.getX() + " " + c.getY() + "]\n");
     }
     controller.updateShip(myBoard.getShips(), myBoard);
     shotCount = controller.setShots(myBoard.getShips());
@@ -128,4 +113,3 @@ public class Ai implements Player {
   }
 
 }
-

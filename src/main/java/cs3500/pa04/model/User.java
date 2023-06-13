@@ -45,8 +45,8 @@ public class User implements Player {
     data.representData(myBoard.getGameBoard(), "S ", myShips); // get list of ships & coords
     shotCount = myShips.size(); // set shot # to current amount of non-sunk ships
     SalvoView view = new SalvoView();
-    view.showBoard(seenOpponentBoard.getGameBoard(), "Opponent Board:");
-    view.showBoard(myBoard.getGameBoard(), "Your Board:");
+    view.showBoard(seenOpponentBoard.getGameBoard(), "Opponent Board:\n");
+    view.showBoard(myBoard.getGameBoard(), "Your Board:\n");
     return myShips;
 
   }
@@ -102,11 +102,11 @@ public class User implements Player {
   @Override
   public void successfulHits(List<Coord> shotsThatHitOpponentShips) {
     SalvoView view = new SalvoView();
-    view.showBoard(myBoard.getGameBoard(), "Your Board:");
+    view.showBoard(myBoard.getGameBoard(), "Your Board:\n");
 
-    view.printString("Your Successful hits: ");
+    view.printString("Your Successful hits:\n");
     for (Coord c : shotsThatHitOpponentShips) {
-      view.printString("[" + c.getX() + " " + c.getY() + "]");
+      view.printString("[" + c.getX() + " " + c.getY() + "]\n");
     }
     controller.updateShip(myBoard.getShips(), myBoard);
     shotCount = controller.setShots(myBoard.getShips());

@@ -92,7 +92,7 @@ public class Board {
     for (Coord c : missedShots) {
       int coordX = c.getX();
       int coordY = c.getY();
-      gameBoard[coordY][coordX] = (ANSI_RED + "X " + ANSI_RESET);
+      gameBoard[coordX][coordY] = (ANSI_RED + "X " + ANSI_RESET);
     }
   }
 
@@ -103,9 +103,10 @@ public class Board {
     for (Coord c : hitShots) {
       int coordX = c.getX();
       int coordY = c.getY();
-      gameBoard[coordY][coordX] = (ANSI_GREEN + "O " + ANSI_RESET);
+      gameBoard[coordX][coordY] = (ANSI_GREEN + "O " + ANSI_RESET);
     }
   }
+
 
   /**
    * @return the board's ships

@@ -122,7 +122,7 @@ public class InputController {
    * @param shots             the list of shots to be taken
    * @return the list of shots to be taken
    */
-  public ArrayList<Coord> getShotCoords(int shotCount,
+  public void getShotCoords(int shotCount,
                                         Board seenOpponentBoard, ArrayList<Coord> shots) {
     shots.clear();
 
@@ -156,7 +156,6 @@ public class InputController {
         break;
       }
     }
-    return shots;
   }
 
   /**
