@@ -16,7 +16,7 @@ public class ProxyController {
   private final Socket server;
   private final InputStream in;
   private final PrintStream out;
-  private final PlayerController playerController;
+  private final PlayerController player;
   private final ObjectMapper mapper = new ObjectMapper();
 
   /**
@@ -34,7 +34,8 @@ public class ProxyController {
     this.server = server;
     this.in = server.getInputStream();
     this.out = new PrintStream(server.getOutputStream());
-    this.playerController = new PlayerController();
+    player = new PlayerController();
+    this.player = player;
   }
 
   /**
