@@ -1,7 +1,7 @@
 package cs3500.pa04;
 
-import cs3500.pa04.controller.PlayerController;
 import cs3500.pa04.controller.ProxyController;
+import cs3500.pa04.model.User;
 import cs3500.pa04.view.SalvoView;
 import java.io.IOException;
 import java.net.Socket;
@@ -27,8 +27,8 @@ public class Driver {
     else if (args.length == 2) {
       try {
         Socket server = new Socket(args[0], Integer.parseInt(args[1]));
-        PlayerController playerController = new PlayerController();
-        ProxyController proxyController = new ProxyController(server, playerController);
+        Player player = new User();
+        ProxyController proxyController = new ProxyController(server, player);
         proxyController.run();
         server.close();
       } catch (IOException e) {

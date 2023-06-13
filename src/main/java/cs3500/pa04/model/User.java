@@ -13,23 +13,9 @@ import java.util.Map;
 public class User implements Player {
   private Board myBoard;
   private Board seenOpponentBoard;
-  private Board opponentBoard;
   private int shotCount;
   private ArrayList<Coord> shotsToTake;
   private ShipController controller = new ShipController();
-
-  /**
-   * constructor for the User
-   *
-   * @param myBoard           the user's board
-   * @param seenOpponentBoard the opponent's board
-   * @param opponentBoard     the user's opponent's board
-   */
-  public User(Board myBoard, Board seenOpponentBoard, Board opponentBoard) {
-    this.myBoard = myBoard;
-    this.seenOpponentBoard = seenOpponentBoard;
-    this.opponentBoard = opponentBoard;
-  }
 
   /**
    * @return the name of the player
@@ -48,6 +34,8 @@ public class User implements Player {
    */
   @Override
   public List<Ship> setup(int height, int width, Map<ShipType, Integer> specifications) {
+    myBoard = new Board(height, width);
+    seenOpponentBoard = new Board(height, width);
     myBoard.placeShips(myBoard.getGameBoard(), specifications); // place my ships
     List<Ship> myShips = myBoard.getShips();
     ShipData data = new ShipData();

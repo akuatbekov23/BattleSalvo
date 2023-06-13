@@ -111,8 +111,7 @@ public class PlayerControllerTest {
   @Test
   public void testGameLoop() {
     // Test case where the game ends in a tie
-    Player user = new User(new Board(10, 10),
-        new Board(10, 10), new Board(10, 10));
+    Player user = new User();
     Player bot = new Ai(new Board(10, 10),
         new Board(10, 10), new Board(10, 10));
 

@@ -33,12 +33,11 @@ public class PlayerController {
    * @param specifications a map of ship amounts to each ship type
    */
   public void startGame(int height, int width, Map<ShipType, Integer> specifications) {
-    playerBoard = new Board(height, width);
     botBoard = new Board(height, width);
     seenPlayerBoard = new Board(height, width);
     seenBotBoard = new Board(height, width);
 
-    user = new User(playerBoard, seenBotBoard, botBoard);
+    user = new User();
     bot = new Ai(botBoard, seenPlayerBoard, seenBotBoard);
 
     user.setup(height, width, specifications);
@@ -59,7 +58,7 @@ public class PlayerController {
       bot.successfulHits(landedAiShots);
       user.successfulHits(landedUserShots);
 
-      List<Ship> playerShips = playerBoard.getShips();
+      List<Ship> playerShips = playerBoard.getShips(); // fix this & view in AI / User
       List<Ship> botShips = botBoard.getShips();
 
       if (controller.setShots(playerShips) == 0 && controller.setShots(botShips) == 0) {
