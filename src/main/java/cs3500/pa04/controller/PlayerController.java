@@ -16,15 +16,15 @@ import java.util.Map;
  */
 public class PlayerController {
 
-  private Board playerBoard;
-  private Board botBoard;
-  private Board seenPlayerBoard;
-  private Board seenBotBoard;
+  public Board playerBoard;
+  public Board botBoard;
+  public Board seenPlayerBoard;
+  public Board seenBotBoard;
   /**
    * the user playing the game
    */
   public Player user;
-  private Player bot;
+  public Player bot;
   private ShipController controller = new ShipController();
 
   /**

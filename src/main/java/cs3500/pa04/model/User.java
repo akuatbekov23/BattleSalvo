@@ -36,7 +36,7 @@ public class User implements Player {
    */
   @Override
   public String name() {
-    return null;
+    return "pa04-zzzsleepypamakemecry";
   }
 
   /**

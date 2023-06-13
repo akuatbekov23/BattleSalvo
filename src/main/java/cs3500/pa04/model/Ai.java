@@ -36,7 +36,7 @@ public class Ai implements Player {
    */
   @Override
   public String name() {
-    return null;
+    return    "pa04-zzzsleepypamakemecry";
   }
 
   /**

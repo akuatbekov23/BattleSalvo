@@ -24,6 +24,7 @@ public class SalvoView {
     return s;
   }
 
+
   /**
    * prompts the user to give a board height and width
    */
