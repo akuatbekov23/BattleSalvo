@@ -144,8 +144,7 @@ public class PlayerControllerTest {
     playerController.seenBotBoard = new Board(10, 10);
     playerController.botBoard = new Board(10, 10);
     playerController.seenPlayerBoard = new Board(10, 10);
-    playerController.user = new User(playerController.playerBoard,
-        playerController.seenBotBoard, playerController.botBoard) {
+    playerController.user = new User() {
       @Override
       public void endGame(GameResult result, String message) {
         // Verify the game ends in a tie
@@ -170,8 +169,7 @@ public class PlayerControllerTest {
     playerController.gameLoop();
 
     // Test case where the user wins
-    playerController.user = new User(playerController.playerBoard,
-        playerController.seenBotBoard, playerController.botBoard) {
+    playerController.user = new User() {
       @Override
       public void endGame(GameResult result, String message) {
         // Verify the user wins
@@ -193,8 +191,7 @@ public class PlayerControllerTest {
     playerController.gameLoop();
 
     // Test case where the user loses
-    playerController.user = new User(playerController.playerBoard,
-        playerController.seenBotBoard, playerController.botBoard) {
+    playerController.user = new User() {
       @Override
       public void endGame(GameResult result, String message) {
         // Verify the user loses

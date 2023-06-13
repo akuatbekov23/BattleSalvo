@@ -101,7 +101,7 @@ public class ProxyController {
   /**
    * handles the setup message from the server
    *
-   * @param arguments the arguments of setup
+   * @param arguments the arguments of setup message
    * @return the response as a Json node
    */
   private JsonNode handleSetup(JsonNode arguments) {
