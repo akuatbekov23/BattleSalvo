@@ -28,6 +28,7 @@ public class Driver {
         Player player = new Ai();
         ProxyController proxyController = new ProxyController(server, player);
         proxyController.run();
+        server.close();
       } catch (IOException e) {
         System.out.println("Invalid arguments! Please put in the server host and port.");
       }

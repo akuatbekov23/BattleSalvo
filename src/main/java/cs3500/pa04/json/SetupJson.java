@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * @param width  the width of the board
  * @param height the height of the board
- * @param spec the specifications of each ship
+ * @param spec the hash-map of ship type to amount of that ship-type
  */
 public record SetupJson(
     @JsonProperty("width") int width,
