@@ -68,24 +68,29 @@ public class ProxyController {
   private void delegateMessage(MessageJson message) {
     String name = message.messageName();
     JsonNode arguments = message.arguments();
-    JsonNode response = null;
+    JsonNode response;
 
     if ("join".equals(name)) {
       response = handleJoin();
+      createMessage(name, response);
     } else if ("setup".equals(name)) {
       response = handleSetup(arguments);
+      createMessage(name, response);
     } else if ("take-shots".equals(name)) {
       response = handleTakeShots();
+      createMessage(name, response);
     } else if ("report-damage".equals(name)) {
       response = handleReportDamage(arguments);
+      createMessage(name, response);
     } else if ("successful-hits".equals(name)) {
       response = handleSuccessfulHits(arguments);
+      createMessage(name, response);
     } else if ("end-game".equals(name)) {
-      handleEndGame(arguments);
+      response = handleEndGame(arguments);
+      createMessage(name, response);
     } else {
       throw new IllegalArgumentException("Invalid message name!");
     }
-    createMessage(name, response);
   }
 
   /**
