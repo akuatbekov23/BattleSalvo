@@ -9,16 +9,16 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * represents tests for the ship data class
+ */
 public class ShipDataTest {
 
+  /**
+   * a test for representing the data on a board
+   */
   @Test
   public void testRepresentData() {
-    String[][] gameBoard = {
-        {"C ", "= ", "= ", "= "},
-        {"B ", "B ", "= ", "= "},
-        {"= ", "D ", "D ", "D "},
-        {"S ", "S ", "S ", "= "}
-    };
 
     Ship ship1 = new Ship(ShipType.CARRIER, new ArrayList<>());
 
@@ -28,15 +28,21 @@ public class ShipDataTest {
 
     ShipData shipData = new ShipData();
 
-    List<Ship> allShips1 = shipData.representData(gameBoard, "C ", allShips);
-    ArrayList<Coord> shipCoords = new ArrayList<>();
-
     Ship expectedShip = ship1;
 
     expectedShip.addCoord(new Coord(0, 0));
     expectedShip.addCoord(new Coord(0, 1));
     expectedShip.addCoord(new Coord(0, 2));
     expectedShip.addCoord(new Coord(0, 3));
+
+    String[][] gameBoard = {
+        {"C ", "= ", "= ", "= "},
+        {"B ", "B ", "= ", "= "},
+        {"= ", "D ", "D ", "D "},
+        {"S ", "S ", "S ", "= "}
+    };
+
+    List<Ship> allShips1 = shipData.representData(gameBoard, "C ", allShips);
 
     Assertions.assertEquals(1, allShips1.size());
     Assertions.assertEquals(expectedShip, allShips1.get(0));

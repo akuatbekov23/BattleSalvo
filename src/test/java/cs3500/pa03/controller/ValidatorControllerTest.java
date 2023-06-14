@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * represents tests for the validator controller
+ */
 public class ValidatorControllerTest {
 
   private ValidatorController validatorController;
