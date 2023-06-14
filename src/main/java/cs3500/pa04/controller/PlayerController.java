@@ -46,13 +46,13 @@ public class PlayerController {
   public void gameLoop() {
     boolean gameEnd = false;
     while (!gameEnd) {
+      SalvoView view = new SalvoView();
       List<Coord> userShots = user.takeShots();
       List<Coord> aiShots = bot.takeShots();
-      List<Coord> landedAiShots = user.reportDamage(aiShots);
       List<Coord> landedUserShots = bot.reportDamage(userShots);
+      List<Coord> landedAiShots = user.reportDamage(aiShots);
       perceivedBoard.updateBoardMissed(userShots);
       perceivedBoard.updateBoardHit(landedUserShots);
-      SalvoView view = new SalvoView();
       view.showBoard(perceivedBoard.getGameBoard(), "Opponent Board:\n");
       bot.successfulHits(landedAiShots);
       user.successfulHits(landedUserShots);

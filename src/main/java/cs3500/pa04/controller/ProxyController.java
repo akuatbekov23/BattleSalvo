@@ -99,7 +99,7 @@ public class ProxyController {
    * @return the response as a Json Node
    */
   private JsonNode handleJoin() {
-    JoinJson response = new JoinJson("hakugakusha", "MULTI");
+    JoinJson response = new JoinJson("hakugakusha", "SINGLE");
     return JsonUtils.serializeRecord(response);
   }
 
