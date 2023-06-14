@@ -50,8 +50,8 @@ public class PlayerController {
       List<Coord> userShots = user.takeShots();
       List<Coord> aiShots = bot.takeShots();
       List<Coord> landedUserShots = bot.reportDamage(userShots);
-      List<Coord> landedAiShots = user.reportDamage(aiShots);
       perceivedBoard.updateBoardMissed(userShots);
+      List<Coord> landedAiShots = user.reportDamage(aiShots);
       perceivedBoard.updateBoardHit(landedUserShots);
       view.showBoard(perceivedBoard.getGameBoard(), "Opponent Board:\n");
       bot.successfulHits(landedAiShots);

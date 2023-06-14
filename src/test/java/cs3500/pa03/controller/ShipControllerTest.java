@@ -1,18 +1,19 @@
 package cs3500.pa03.controller;
 
-import cs3500.pa04.model.ShipType;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import cs3500.pa04.controller.ShipController;
 import cs3500.pa04.model.Board;
 import cs3500.pa04.model.Coord;
 import cs3500.pa04.model.Ship;
-
+import cs3500.pa04.model.ShipType;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+/**
+ * represents tests for the ship controller
+ */
 public class ShipControllerTest {
 
   private ShipController shipController;
@@ -64,7 +65,6 @@ public class ShipControllerTest {
 
   @Test
   public void testUpdateShipAllSunk() {
-    Board board = new Board(10, 10);
 
     Ship ship1 = new Ship(ShipType.SUBMARINE, new ArrayList<>());
     Ship ship2 = new Ship(ShipType.DESTROYER, new ArrayList<>());
@@ -77,7 +77,7 @@ public class ShipControllerTest {
     ships.add(ship1);
     ships.add(ship2);
 
-
+    Board board = new Board(10, 10);
     // Simulate all ships being hit and sunk
     board.addHitSpot(new Coord(0, 0));
     board.addHitSpot(new Coord(0, 1));
@@ -99,7 +99,6 @@ public class ShipControllerTest {
 
   @Test
   public void testUpdateShipNotAllSunk() {
-    Board board = new Board(10, 10);
 
     Ship ship1 = new Ship(ShipType.SUBMARINE, new ArrayList<>());
     Ship ship2 = new Ship(ShipType.DESTROYER, new ArrayList<>());
@@ -114,7 +113,7 @@ public class ShipControllerTest {
     ships.add(ship1);
     ships.add(ship2);
 
-
+    Board board = new Board(10, 10);
     // Simulate some ships being hit and sunk
     board.addHitSpot(new Coord(0, 0));
     board.addHitSpot(new Coord(0, 1));
@@ -126,7 +125,6 @@ public class ShipControllerTest {
     shipController.updateShip(ships, board);
 
     // Assert that only the first ship is marked as not sunk
-
 
 
   }
