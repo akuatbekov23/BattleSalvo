@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * represents tests for the ship data class
+ * represents tests for ship data
  */
 public class ShipDataTest {
 
