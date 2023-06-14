@@ -16,10 +16,10 @@ import java.util.Map;
  * represents a controller for anything Player related
  */
 public class PlayerController {
-  Board perceivedBoard;
+  private Board perceivedBoard;
 
-  List<Ship> playerShips;
-  List<Ship> botShips;
+  private List<Ship> playerShips;
+  private List<Ship> botShips;
   private Player user;
   private Player bot;
   private ShipController controller = new ShipController();
